@@ -2,6 +2,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { ProductExtractionResponse } from "../types";
 
+// Declare process to satisfy Typescript compiler without installing node types
+declare const process: { env: { API_KEY: string } };
+
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const extractProductDetails = async (url: string): Promise<{ data: ProductExtractionResponse, sources: string[] }> => {

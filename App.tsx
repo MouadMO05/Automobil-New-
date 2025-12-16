@@ -114,19 +114,6 @@ const App: React.FC = () => {
     }
   };
 
-  const handleRemoveImageFromProduct = (id: string, imageIndex: number) => {
-    setProducts(prev => prev.map(p => {
-      if (p.id === id) {
-        const newImages = [...p.images];
-        newImages.splice(imageIndex, 1);
-        const updated = { ...p, images: newImages };
-        if (selectedProduct?.id === id) setSelectedProduct(updated);
-        return updated;
-      }
-      return p;
-    }));
-  };
-
   // Image Handler for Draft Product
   const handleAddImagesToDraft = (id: string, newImages: string[]) => {
     if (draftProduct && draftProduct.id === id) {
