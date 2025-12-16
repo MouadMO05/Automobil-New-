@@ -9,9 +9,11 @@ export const extractProductDetails = async (url: string): Promise<{ data: Produc
     const prompt = `
       Analyze this product URL: ${url}
 
-      I need a JSON response with:
-      - "title": The exact listing title.
-      - "description": A summary of the item details (specs, condition).
+      I need a JSON response with the following fields. 
+      **IMPORTANT: Translate 'title' and 'description' to Arabic if they are in another language.**
+
+      - "title": The listing title in Arabic.
+      - "description": A summary of the item details (specs, condition) in Arabic.
       - "price": The price with currency (e.g., 120,000 DH).
       - "images": An array of strings. Find up to 10 valid image URLs for this product.
       - "phoneNumber": Extract any visible phone number text (e.g., "0612345678"). Return null if not found.
